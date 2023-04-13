@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Create a container') {
             steps {
-                sh 'docker run -d --name nginx-p 82:80 test:v1'
+                sh 'docker run -d --name nginx -p 82:80 test:v1'
             }
         }
         
