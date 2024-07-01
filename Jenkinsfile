@@ -1,23 +1,17 @@
 pipeline {
-    agent any
+    agent  docker { image 'node:20.15.0-alpine3.20' }
 
+   pipeline {
+    agent {
+        docker { image 'node:20.15.0-alpine3.20' }
+    }
     stages {
-        stage('Create Docker image') {
+        stage('Test') {
             steps {
-                sh 'docker build -t test:v1 .'
+                sh 'node --version'
             }
         }
-        stage('Delete old container') {
-            steps {
-                sh 'docker rm -f nginx'
-            }
-        }
-
-        stage('Create a container') {
-            steps {
-                sh 'docker run -d --name nginx -p 82:80 test:v1'
-            }
-        }
-        
     }
 }
+
+       
