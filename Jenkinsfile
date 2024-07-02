@@ -1,11 +1,11 @@
 pipeline {
     agent {
-        docker { image 'node:20.15.0-alpine3.20' }
+        docker { image 'continuumio/anaconda3:latest' }
     }
     stages {
         stage('Test') {
             steps {
-                sh 'node --version'
+               echo "Done"
             }
         }
     }
