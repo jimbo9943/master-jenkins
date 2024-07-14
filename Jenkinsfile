@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        docker { image 'continuumio/anaconda3:latest' }
+        docker { image 'nginx:latest' }
     }
     stages {
         stage('Test') {
